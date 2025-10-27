@@ -1,0 +1,228 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #fff;
+  padding: 30px;
+}
+h2 { text-align: center; color: #2d3748; margin-bottom: 20px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+th, td {
+  border: 1px solid #e2e8f0;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 15px;
+}
+th { background: #edf2f7; color: #2d3748; font-weight: 600; }
+tr:hover { background-color: #f1f5f9; }
+input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 15px;
+  padding: 2px 0;
+}
+input:focus { outline: 1px solid #3182ce; background: #ebf8ff; }
+td:nth-child(2) input { width: 160px; text-align: left; padding-left: 8px; }
+td input { width: 100px; }
+th.dueHead { background-color: #f8d7da; color: #b22222; }
+th.refundHead { background-color: #d4edda; color: #155724; }
+.controls {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.control-item { display: flex; flex-direction: column; gap: 5px; }
+.control-item label { font-weight: 600; color: #2d3748; }
+.control-item input {
+  width: 140px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background: #f9fafb;
+  padding: 6px;
+}
+button {
+  border: none;
+  background: dodgerblue; 
+  color: white; 
+  border: none;
+  border-radius: 6px; 
+  padding: 10px 16px;
+  font-size: 15px; 
+  cursor: pointer; 
+  transition: transform 0.15s ease;
+}
+button:hover { 
+  background: #5da4f0;
+  transform: translateY(-3px); 
+} 
+button:active {
+  transform: translateY(2px);
+}
+
+input::placeholder {
+  color: #999; 
+  opacity: 0.6; 
+  transition: opacity 0.3s ease; 
+}
+input:focus::placeholder {
+  opacity: 0.3; 
+}
+/* Star Pop + Glow + Twinkle Animation */
+@keyframes popGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+    text-shadow: 0 0 2px gold;
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.5) rotate(12deg);
+    text-shadow: 0 0 12px gold;
+  }
+  70% {
+    transform: scale(0.9) rotate(-5deg);
+    text-shadow: 0 0 6px gold;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 3px gold;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { text-shadow: 0 0 3px gold; opacity: 1; }
+  50% { text-shadow: 0 0 8px gold; opacity: 0.85; }
+}
+
+.star {
+  color: gold;
+  font-weight: bold;
+  position: relative;
+  left: -25px;
+  display: inline-block;
+  animation:
+    popGlow 0.7s ease-out,
+    twinkle 1.5s ease-in-out infinite 0.7s;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: auto;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  outline: none;
+  text-align: center; 
+}
+
+.input-label {
+  position: absolute;
+  top: 6px; 
+  left: 7px;
+  color: #888;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background-color: #fff;
+  padding: 0 4px;
+}
+#mealRateBox + .input-label {
+    top: -8px;
+    left: 7px;
+    font-size: 11px;
+    color: dodgerblue;
+    background: white;
+    padding: 0 4px;
+    }
+#addCostRateBox + .input-label {
+    top: -8px;
+    left: 7px;
+    font-size: 11px;
+    color: dodgerblue;
+    background: white;
+    padding: 0 4px;
+    }
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown):valid + .input-label {
+  top: -8px;
+  left: 7px;
+  font-size: 11px;
+  color: dodgerblue;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.shine-btn {
+  --btn-bg: dodgerblue;
+  --shine-color: rgba(255,255,255,0.9); 
+  position: relative;
+  padding: 12px 30px;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(180deg, var(--btn-bg), dodgerblue);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.4);
+}
+
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 130%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    var(--shine-color) 45%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg) translateX(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shine-btn.animate::before {
+  animation: shineMove 1.6s ease-in-out forwards;
+  opacity: 1;
+}
+
+@keyframes shineMove {
+  0% {
+    transform: skewX(-20deg) translateX(0);
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: skewX(-20deg) translateX(300%);
+    opacity: 0.5; 
+  }
+}
