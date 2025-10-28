@@ -162,7 +162,7 @@ input:focus::placeholder {
     }
 
 .input-field:focus + .input-label,
-.input-field:not(:placeholder-shown):valid + .input-label {
+.input-field:not(:placeholder-shown) + .input-label {
   top: -8px;
   left: 7px;
   font-size: 11px;
